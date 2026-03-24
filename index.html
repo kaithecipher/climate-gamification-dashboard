@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Climate Quest Dashboard - A gamified climate impact dashboard built for Azure Static Web Apps." />
+  <title>Climate Quest Dashboard | Azure Static Web App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header" id="top">
+      <nav class="navbar container">
+        <a class="brand" href="#hero" aria-label="Climate Quest Dashboard home">
+          <span class="brand-mark">CQ</span>
+          <span class="brand-copy">
+            <strong>Climate Quest</strong>
+            <small>Azure Static Dashboard</small>
+          </span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#about" class="nav-link active">About</a>
+          <a href="#dashboard" class="nav-link">Dashboard</a>
+          <a href="#missions" class="nav-link">Missions</a>
+          <a href="#leaderboard" class="nav-link">Leaderboard</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-section container section" id="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Cloud + Climate + Gamification</p>
+          <h1>Turn everyday climate action into measurable progress, friendly competition, and real impact.</h1>
+          <p class="hero-text">
+            Climate Quest is a unique static dashboard concept built for Azure. It blends sustainability metrics,
+            challenge-based engagement, impact storytelling, and lightweight analytics into a portfolio-ready full-stack demo.
+          </p>
+          <div class="hero-actions">
+            <a href="#dashboard" class="btn btn-primary">Explore dashboard</a>
+            <a href="#contact" class="btn btn-secondary">Deploy this on Azure</a>
+          </div>
+          <ul class="hero-pills" aria-label="Project highlights">
+            <li>Azure-ready static web app</li>
+            <li>Gamified user journeys</li>
+            <li>Python serverless API</li>
+            <li>Responsive UI + charts</li>
+          </ul>
+        </div>
+
+        <aside class="hero-panel glass-card" aria-label="Climate impact summary">
+          <div class="hero-panel-top">
+            <span class="status-dot"></span>
+            <span>Live sustainability snapshot</span>
+          </div>
+          <div class="hero-metric-grid">
+            <article>
+              <p>CO₂ avoided</p>
+              <h2 id="heroCarbon">--</h2>
+              <small>kg this month</small>
+            </article>
+            <article>
+              <p>Eco streak</p>
+              <h2 id="heroStreak">--</h2>
+              <small>consecutive days</small>
+            </article>
+            <article>
+              <p>Water saved</p>
+              <h2 id="heroWater">--</h2>
+              <small>liters</small>
+            </article>
+            <article>
+              <p>Community rank</p>
+              <h2 id="heroRank">--</h2>
+              <small>out of 500</small>
+            </article>
+          </div>
+        </aside>
+      </section>
+
+      <section class="about-section container section" id="about">
+        <div class="section-heading">
+          <p class="eyebrow">Project overview</p>
+          <h2>A modern climate dashboard designed like a product, not a school assignment.</h2>
+          <p>
+            This concept imagines a sustainability platform where users earn points for climate-positive behavior,
+            unlock badges, complete missions, and monitor environmental outcomes through transparent metrics.
+            It is ideal as a cloud developer or AI/ML portfolio piece because it demonstrates UI thinking, data design,
+            serverless integration, and deployment readiness.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card glass-card">
+            <h3>Impact-first analytics</h3>
+            <p>Track CO₂ avoided, water saved, energy reduced, trees planted, and weekly contribution trends.</p>
+          </article>
+          <article class="feature-card glass-card">
+            <h3>Gamified retention loops</h3>
+            <p>Drive engagement with streaks, quests, badge milestones, team rankings, and progress-based rewards.</p>
+          </article>
+          <article class="feature-card glass-card">
+            <h3>Cloud-native deployment path</h3>
+            <p>Serve the front end from Azure Static Web Apps and optionally expose live data via Python Azure Functions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="dashboard-section container section" id="dashboard">
+        <div class="section-heading inline-layout">
+          <div>
+            <p class="eyebrow">Live dashboard</p>
+            <h2>Environmental performance at a glance</h2>
+          </div>
+          <div class="toolbar" role="group" aria-label="Dashboard filters">
+            <button class="filter-btn active" data-period="7d">7D</button>
+            <button class="filter-btn" data-period="30d">30D</button>
+            <button class="filter-btn" data-period="90d">90D</button>
+          </div>
+        </div>
+
+        <div class="kpi-grid" id="kpiGrid"></div>
+
+        <div class="dashboard-grid">
+          <article class="chart-card glass-card">
+            <div class="card-header">
+              <div>
+                <p class="card-kicker">Trend</p>
+                <h3>Climate impact over time</h3>
+              </div>
+              <span class="badge-pill">AI-ready data pattern</span>
+            </div>
+            <canvas id="impactTrendChart" aria-label="Impact trend chart"></canvas>
+          </article>
+
+          <article class="chart-card glass-card">
+            <div class="card-header">
+              <div>
+                <p class="card-kicker">Actions</p>
+                <h3>Top contribution categories</h3>
+              </div>
+              <span class="badge-pill">Behavior insights</span>
+            </div>
+            <canvas id="categoryChart" aria-label="Category contribution chart"></canvas>
+          </article>
+
+          <article class="progress-card glass-card">
+            <div class="card-header">
+              <div>
+                <p class="card-kicker">Goal</p>
+                <h3>Monthly mission progress</h3>
+              </div>
+              <span class="badge-pill">Next reward</span>
+            </div>
+            <div class="progress-ring-wrap">
+              <svg class="progress-ring" width="180" height="180" viewBox="0 0 180 180">
+                <circle class="progress-ring-bg" cx="90" cy="90" r="70"></circle>
+                <circle class="progress-ring-value" id="progressRingValue" cx="90" cy="90" r="70"></circle>
+              </svg>
+              <div class="progress-copy">
+                <strong id="missionProgressValue">0%</strong>
+                <span>toward Eco Guardian</span>
+              </div>
+            </div>
+            <ul class="progress-details" id="progressDetails"></ul>
+          </article>
+
+          <article class="activity-card glass-card">
+            <div class="card-header">
+              <div>
+                <p class="card-kicker">Recent activity</p>
+                <h3>Climate action feed</h3>
+              </div>
+              <span class="badge-pill">Real-time style UI</span>
+            </div>
+            <div class="activity-list" id="activityList"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="missions-section container section" id="missions">
+        <div class="section-heading">
+          <p class="eyebrow">Engagement engine</p>
+          <h2>Missions, badges, and climate habits</h2>
+        </div>
+
+        <div class="missions-layout">
+          <article class="mission-board glass-card">
+            <div class="card-header">
+              <div>
+                <p class="card-kicker">Weekly quests</p>
+                <h3>Complete missions to gain points</h3>
+              </div>
+            </div>
+            <div class="mission-list" id="missionList"></div>
+          </article>
+
+          <article class="badge-board glass-card">
+            <div class="card-header">
+              <div>
+                <p class="card-kicker">Badge cabinet</p>
+                <h3>Unlocked sustainability milestones</h3>
+              </div>
+            </div>
+            <div class="badge-grid" id="badgeGrid"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="leaderboard-section container section" id="leaderboard">
+        <div class="section-heading inline-layout">
+          <div>
+            <p class="eyebrow">Community impact</p>
+            <h2>Friendly competition with measurable outcomes</h2>
+          </div>
+          <span class="leaderboard-chip">Top contributors this cycle</span>
+        </div>
+
+        <div class="leaderboard-table glass-card">
+          <div class="leaderboard-row leaderboard-head">
+            <span>Rank</span>
+            <span>Member</span>
+            <span>Points</span>
+            <span>CO₂ Saved</span>
+            <span>Badge</span>
+          </div>
+          <div id="leaderboardBody"></div>
+        </div>
+      </section>
+
+      <section class="contact-section container section" id="contact">
+        <div class="contact-card glass-card">
+          <div>
+            <p class="eyebrow">Deployment path</p>
+            <h2>Ready for GitHub, Azure Static Web Apps, and recruiter demos.</h2>
+            <p>
+              This project is structured to work as a static front end with optional Python API support.
+              Use it as a portfolio piece for cloud development, serverless architecture, sustainability tech,
+              or product-minded data visualization work.
+            </p>
+          </div>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="https://github.com/kaithecipher/climate-gamification-dashboard" target="_blank" rel="noreferrer">Open repository target</a>
+            <a class="btn btn-secondary" href="mailto:khari@example.com">Contact the builder</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

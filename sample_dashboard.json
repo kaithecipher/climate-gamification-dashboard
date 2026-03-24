@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "source": "sample-seed",
+    "period": "30d",
+    "environment": "demo"
+  },
+  "summary": {
+    "points": 4820,
+    "points_growth_pct": 12,
+    "co2_avoided_kg": 138,
+    "co2_growth_pct": 9,
+    "water_saved_liters": 2140,
+    "water_growth_pct": 14,
+    "trees_equivalent": 11,
+    "streak_days": 19,
+    "community_rank": 27,
+    "mission_progress": {
+      "current": 84,
+      "target": 100,
+      "remaining": 16,
+      "percentage": 84,
+      "next_reward": "Eco Guardian Badge"
+    }
+  },
+  "trends": [
+    {"label": "Week 1", "co2_avoided_kg": 22, "points": 610},
+    {"label": "Week 2", "co2_avoided_kg": 29, "points": 910},
+    {"label": "Week 3", "co2_avoided_kg": 35, "points": 1040},
+    {"label": "Week 4", "co2_avoided_kg": 52, "points": 1260}
+  ],
+  "categories": [
+    {"category": "Transit", "value": 1200},
+    {"category": "Energy", "value": 980},
+    {"category": "Waste", "value": 760},
+    {"category": "Water", "value": 540}
+  ],
+  "activities": [
+    {
+      "title": "Bike commute challenge completed",
+      "description": "You replaced 4 car trips with bike commutes and reduced transport emissions this week.",
+      "timestamp": "2 hours ago",
+      "points": 140,
+      "impact": "12 kg CO₂ avoided",
+      "icon": "bike"
+    },
+    {
+      "title": "Smart thermostat optimization",
+      "description": "Lowered unnecessary HVAC usage during peak hours and improved home energy efficiency.",
+      "timestamp": "Yesterday",
+      "points": 110,
+      "impact": "18 kWh saved",
+      "icon": "energy"
+    },
+    {
+      "title": "Household recycling streak",
+      "description": "Maintained correct recycling and compost sorting for 7 straight days.",
+      "timestamp": "2 days ago",
+      "points": 95,
+      "impact": "9 kg waste diverted",
+      "icon": "recycle"
+    }
+  ],
+  "missions": [
+    {
+      "title": "Transit Hero",
+      "description": "Use low-emission transportation 5 times this week.",
+      "points": 180,
+      "status": "4 of 5 complete"
+    },
+    {
+      "title": "Water Wise",
+      "description": "Reduce household water use by 8% using shorter showers and leak checks.",
+      "points": 130,
+      "status": "In progress"
+    },
+    {
+      "title": "Grid Lightener",
+      "description": "Shift appliance usage away from peak demand windows on 3 separate days.",
+      "points": 150,
+      "status": "Completed"
+    }
+  ],
+  "badges": [
+    {
+      "name": "Carbon Cutter",
+      "description": "Avoided more than 100 kg of CO₂ in a single monthly cycle.",
+      "icon": "carbon"
+    },
+    {
+      "name": "Hydration Hero",
+      "description": "Saved over 2,000 liters of water through efficient routines.",
+      "icon": "water"
+    },
+    {
+      "name": "Streak Keeper",
+      "description": "Maintained a climate-positive action streak for 14+ days.",
+      "icon": "streak"
+    },
+    {
+      "name": "Community Spark",
+      "description": "Ranked in the top 10% of the local sustainability leaderboard.",
+      "icon": "badge"
+    }
+  ],
+  "leaderboard": [
+    {"rank": 1, "name": "Ava Green", "points": 6240, "co2_saved_kg": 184, "badge": "Planet Pioneer"},
+    {"rank": 2, "name": "Leo Rivers", "points": 6110, "co2_saved_kg": 173, "badge": "Transit Titan"},
+    {"rank": 3, "name": "Mia Sol", "points": 5870, "co2_saved_kg": 169, "badge": "Grid Guardian"},
+    {"rank": 27, "name": "You", "points": 4820, "co2_saved_kg": 138, "badge": "Eco Guardian"}
+  ]
+}
